@@ -1,0 +1,129 @@
+{
+	"extensionName": "MiRobot",
+	"description": "Una extension para motores L9110S, ultrasonidos HC-SR04 e infrarrojos TCRT5000.",
+	"version": "1.1",
+	"author": "studioMIRANDA",
+	"homepage": "https://estudiomiranda.github.io/tutoriales/",
+	"sort":0,
+	"javascriptURL":"js/main.js",
+  	"firmware":"1.0",
+  	"extensionPort":0,
+	"blockSpecs": [
+		[
+		"h",
+		"MiRobot",
+		"runArduino"
+		],
+		[
+      "w",
+      "Pins motor A1 %n, A2 %n, B1 %n, B2 %n, D %n, E %n, ID %n, II %n",
+      "asignar",
+      "5",
+      "6",
+      "9",
+      "10",
+			"11",
+			"12",
+			"13",
+			"14",
+      {
+        "inc" : "#include \"MiRobot.h\"\n",
+        "def" : "MiRobot robot({0},{1},{2},{3},{4},{5},{6},{7});\n",
+        "setup" : "robot.begin();\n",
+        "work" : "",
+        "loop":""
+      }
+    ],
+    [
+      "w",
+      "Avanzar motor A %n, motor B %n ",
+      "forward",
+      "255",
+			"255",
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "robot.avanzar({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Retroceder motor A %n, motor B %n",
+      "backward",
+      "255",
+			"255",
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "robot.retroceder({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Girar Izquierda motor A %n, motor B %n",
+      "left",
+      "255",
+			"255",
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "robot.girarIzquierda({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+    [
+      "w",
+      "Girar derecha motor A %n, motor B %n",
+      "right",
+      "255",
+			"255",
+      {
+        "inc" : "",
+        "def" : "",
+        "setup" : "",
+        "work" : "robot.girarDerecha({0},{1});\n",
+        "loop" : ""
+      }
+    ],
+		[
+		"B",
+		"read digital pin %n",
+		"getDigital",
+		"9",
+	 {
+	 "encode":"{d0}",
+	 "setup":"pinMode({0},INPUT);\n",
+	 "inc":"",
+	 "def":"",
+	 "work":"digitalRead({0})",
+	 "loop":""
+	 }
+	 ],
+		[
+		"b",
+		"obstaculo detectado a %n cm",
+		"ObstaculoDetectado",
+		"30",
+		{
+		"inc" : "",
+		"def" : "",
+		"setup" : "",
+		"work":"robot.obstaculoDetectado({0})",
+		"loop":""
+		}
+		]
+	],
+
+	"menus": {
+	},
+	"values":{
+	},
+	"translators":{
+
+	}
+}
